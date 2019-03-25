@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>工作台</title>
+
+    <link href="pages/css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="custom/uimaker/easyui.css">
+    <link rel="stylesheet" href="pages/css/workbench.css">
+</head>
+<body>
+<div class="container">
+    <div id="hd">
+
+    </div>
+
+    <div id="bd">
+        <div class="bd-content">
+            <div class="center-part">
+                <div class="center-items todo">
+                    <ul class="work-items clearfix">
+                        <li>
+                            <div class="work-inner">
+                                <div class="work-item green yuangong">
+                                    <i class="iconfont">&#xe61f;</i>
+                                    <span id="yuangong" class="num"></span>
+                                    <label>员工数</label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="work-inner">
+                                <div class="work-item red yujing">
+                                    <i class="iconfont">&#xe622;</i>
+                                    <span id="yujing" class="num"></span>
+                                    <label>库存预警</label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="work-inner">
+                                <div class="work-item yellow qingjia">
+                                    <i class="iconfont">&#xe61d;</i>
+                                    <span id="qingjia" class="num"></span>
+                                    <label>员工请假待处理</label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="work-inner">
+                                <div class="work-item blue">
+                                    <i class="iconfont">&#xe621;</i>
+                                    <span id="chuku" title="2000,00万" class="num">2000,00&nbsp;<span class="unit">万</span></span>
+                                    <label>总出库金额</label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="work-inner">
+                                <div class="work-item purple book_count">
+                                    <i class="iconfont">&#xe61e;</i>
+                                    <span id="book_count" title="2000本" class="num"></span>
+                                    <label>现有图书种类数</label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="work-inner">
+                                <div class="work-item gray chubanshe">
+                                    <i class="iconfont">&#xe620;</i>
+                                    <span id="chubanshe" class="num"></span>
+                                    <label>出版社</label>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ft"></div>
+</div>
+<div class="todo-panel">
+    <div class="todo-title">
+        <i class="iconfont">&#xe61f;</i>
+        <!--<span class="num">14&nbsp;<span class="unit">个</span></span>-->
+        <label>待办未处理</label>
+    </div>
+</div>
+<script type="text/javascript" src="custom/jquery.min.js"></script>
+<script type="text/javascript" src="custom/jquery.easyui.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+
+        //员工信息点击事件
+        $('.yuangong').click(function(){
+            parent.$(window.parent.document).find('.ygClick').click();
+        });
+
+        //出版社信息点击事件
+        $('.chubanshe').click(function(){
+            parent.$(window.parent.document).find('.cbsClick').click();
+        });
+
+        //书籍信息点击事件
+        $('.book_count').click(function(){
+            parent.$(window.parent.document).find('.sjClick').click();
+        });
+
+        //请假信息点击事件
+        $('.qingjia').click(function(){
+            parent.$(window.parent.document).find('#qingjiachuli').click();
+        });
+
+        //库存预警信息点击事件
+        $('.yujing').click(function(){
+            parent.$(window.parent.document).find('.kcyjClick').click();
+        });
+
+
+//        $.ajax({
+//            type: "Post",
+//            url: "/book/index",
+//            contentType: "application/json; charset=utf-8",
+//            dataType: "json",
+//            success: function (data) {
+//
+//                if (data != null) {
+//                    $("#book_count").attr("title", data.total+"本");
+//                    $("#book_count").html(data.total+"&nbsp;<span" + "class='unit'>本</span>");
+//                }
+//
+//            }
+//        });
+//
+//        $.ajax({
+//            type: "Post",
+//            url: "/press/index",
+//            contentType: "application/json; charset=utf-8",
+//            dataType: "json",
+//            success: function (data) {
+//
+//                if (data != null) {
+//                    $("#chubanshe").attr("title", data.total+"个");
+//                    $("#chubanshe").html(data.total+"&nbsp;<span" + "class='unit'>个</span>");
+//                }
+//
+//            }
+//        });
+//
+//        $.ajax({
+//            type: "Post",
+//            url: "/qingjia/weichuli",
+//            contentType: "application/json; charset=utf-8",
+//            dataType: "json",
+//            success: function (data) {
+//
+//                if (data != null) {
+//                    $("#qingjia").attr("title", data.total+"个");
+//                    $("#qingjia").html(data.total+"&nbsp;<span" + "class='unit'>封</span>");
+//                }
+//
+//            }
+//        });
+//
+//
+//        $.ajax({
+//            type: "Post",
+//            url: "/Schedule/index",
+//            contentType: "application/json; charset=utf-8",
+//            dataType: "json",
+//            success: function (data) {
+//
+//                if (data != null) {
+//                    $("#yuangong").attr("title", data.total+"个");
+//                    $("#yuangong").html(data.total+"&nbsp;<span" + "class='unit'>个</span>");
+//                }
+//
+//            }
+//        });
+//
+//        $.ajax({
+//            type: "Post",
+//            url: "/Stock/getyujingBook",
+//            contentType: "application/json; charset=utf-8",
+//            dataType: "json",
+//            success: function (data) {
+//
+//                if (data != null) {
+//                    $("#yujing").attr("title", data.total+"条");
+//                    $("#yujing").html(data.total+"&nbsp;<span" + "class='unit'>条</span>");
+//                }
+//
+//            }
+//        });
+
+
+//        //获取出库总金额
+//        $.ajax({
+//            type: "Post",
+//            url: "/Order/getAmount",
+//            contentType: "application/json; charset=utf-8",
+//            dataType: "json",
+//            success: function (data) {
+//
+//                if (data != null) {
+//                    $("#chuku").attr("title", data+"元");
+//                    $("#chuku").html(data+"&nbsp;<span" + "class='unit'>元</span>");
+//                }
+//
+//            }
+//        });
+
+
+
+//            $("#btnOK").click(function() {
+//
+//            });
+    });
+
+</script>
+</body>
+</html>
