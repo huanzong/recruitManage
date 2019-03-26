@@ -27,42 +27,42 @@
                         </a>
                     </li>
                     <li class="pf-nav-item project" data-menu="org-manage">
-                        <a class="yuangongClick" href="javascript:;">
+                        <a class="operatorClick" href="javascript:;">
                             <span class="iconfont">&#xe60d;</span>
-                            <span class="pf-nav-title">员工管理</span>
+                            <span class="pf-nav-title">管理员管理</span>
                         </a>
                     </li>
                     <li class="pf-nav-item static" data-menu="main-data">
-                        <a class="kucunClick" href="javascript:;">
+                        <a class="yonghuClick" href="javascript:;">
                             <span class="iconfont">&#xe61e;</span>
-                            <span class="pf-nav-title">库存查看</span>
+                            <span class="pf-nav-title">用户管理</span>
                         </a>
                     </li>
                     <li class="pf-nav-item manger" data-menu="supplier-mange">
                         <a class="chubansheClick" href="javascript:;">
                             <span class="iconfont">&#xe620;</span>
-                            <span class="pf-nav-title">出版社管理</span>
+                            <span class="pf-nav-title">无</span>
                         </a>
                     </li>
 
                     <li class="pf-nav-item manger" data-menu="supplier-dev">
                         <a class="churuClick" href="javascript:;">
                             <span class="iconfont">&#xe625;</span>
-                            <span class="pf-nav-title">出入库</span>
+                            <span class="pf-nav-title">无</span>
                         </a>
                     </li>
 
                     <li class="pf-nav-item manger" data-menu="pur-source">
                         <a class="shujiClick" href="javascript:;">
                             <span class="iconfont">&#xe64b;</span>
-                            <span class="pf-nav-title">书籍信息</span>
+                            <span class="pf-nav-title">无</span>
                         </a>
                     </li>
 
                     <li class="pf-nav-item manger" data-menu="contract-mange">
                         <a class="guanliClick" href="javascript:;">
                             <span class="iconfont">&#xe64c;</span>
-                            <span class="pf-nav-title">管理员</span>
+                            <span class="pf-nav-title">无</span>
                         </a>
                     </li>
 
@@ -70,27 +70,27 @@
                     <li class="pf-nav-item manger" data-menu="pur-source">
                         <a class="zhiweiClick" href="javascript:;">
                             <span class="iconfont">&#xe623;</span>
-                            <span class="pf-nav-title">职位管理</span>
+                            <span class="pf-nav-title">无</span>
                         </a>
                     </li>
 
                     <li class="pf-nav-item manger" data-menu="contract-mange">
                         <a class="bumenClick" href="javascript:;">
                             <span class="iconfont">&#xe646;</span>
-                            <span class="pf-nav-title">部门管理</span>
+                            <span class="pf-nav-title">无</span>
                         </a>
                     </li>
                     <li class="pf-nav-item manger" data-menu="pur-source">
                         <a class="cangkuClick" href="javascript:;">
                             <span class="iconfont">&#xe623;</span>
-                            <span class="pf-nav-title">仓库管理</span>
+                            <span class="pf-nav-title">无</span>
                         </a>
                     </li>
 
                     <li class="pf-nav-item manger" data-menu="contract-mange">
                         <a class="qingjiaClick" href="javascript:;">
                             <span class="iconfont">&#xe646;</span>
-                            <span class="pf-nav-title">请假管理</span>
+                            <span class="pf-nav-title">无</span>
                         </a>
                     </li>
 
@@ -98,7 +98,7 @@
                     <li class="pf-nav-item manger" data-menu="pur-source">
                         <a class="qingjiajiluClick" href="javascript:;">
                             <span class="iconfont">&#xe623;</span>
-                            <span class="pf-nav-title">请假记录</span>
+                            <span class="pf-nav-title">无</span>
                         </a>
                     </li>
 
@@ -178,7 +178,7 @@
                         <i class="iconfont">&#xe642;</i>
                     </a>
                     <ul class="sider-nav-s">
-                        <li><a class="shuji quanxian" power="用户管理" href="#"
+                        <li><a class="yonghu" power="用户管理" href="#"
                                onclick="addTab('用户管理','pages/Stock/user/user.jsp')">用户管理</a></li>
                     </ul>
                 </li>
@@ -189,30 +189,9 @@
                         <i class="iconfont">&#xe642;</i>
                     </a>
                     <ul class="sider-nav-s">
-                        <li><a href="#" class="ygClick quanxian" power="员工管理"
-                               onclick="addTab('公司管理','pages/Stock/staffInfo/staffInfo.jsp')">员工信息</a>
+                        <li><a href="#" class="ygClick quanxian" power="公司管理"
+                               onclick="addTab('公司管理','pages/Stock/company/company.jsp')">公司管理</a>
                         </li>
-                    </ul>
-                </li>
-
-
-                <li class="mokuai">
-                    <a href="javascript:;">
-                        <span class="iconfont sider-nav-icon">&#xe620;</span>
-                        <span class="sider-nav-title">库存管理</span>
-                        <i class="iconfont">&#xe642;</i>
-                    </a>
-                    <ul class="sider-nav-s">
-                        <li><a href="#" power="订单管理" class="quanxian DDClick"
-                               onclick="addTab('订单管理','pages/Stock/Order/Order.jsp')">订单管理</a></li>
-                        <li><a href="#" power="订单详情" class="quanxian"
-                               onclick="addTab('订单详情信息','pages/Stock/Orderdetail/Orderdetail.jsp')">订单详情信息</a>
-                        </li>
-                        <li><a href="#" power="库存查看" class="quanxian sjClick"
-                               onclick="addTab('全部书籍','pages/Stock/Stock/Stock.jsp')">全部书籍</a>
-                        </li>
-                        <li><a href="#" power="库存预警" class="quanxian kcyjClick"
-                               onclick="addTab('库存预警书籍','pages/Stock/Stock/yujingStock.jsp')">库存预警书籍</a></li>
                     </ul>
                 </li>
 
@@ -356,38 +335,15 @@
     }
 
 
-    //顶部按钮员工管理
-    $(".yuangongClick").click(function () {
-        $(".ygClick").click();
-
-    });
-
-    //顶部按钮库存查看
-    $(".kucunClick").click(function () {
-        $(".sjClick").click();
-
-    });
-
-    //顶部按钮出版社管理
-    $(".chubansheClick").click(function () {
-        $(".cbsClick").click();
-
-    });
-
-    //顶部按钮出入库
-    $(".churuClick").click(function () {
-        $(".DDClick").click();
-
-    });
 
     //顶部按钮书籍信息
-    $(".shujiClick").click(function () {
-        $(".shuji").click();
+    $(".yonghuClick").click(function () {
+        $(".yonghu").click();
 
     });
 
     //顶部按钮管理员
-    $(".guanliClick").click(function () {
+    $(".operatorClick").click(function () {
         $(".GLClick").click();
 
     });
