@@ -116,7 +116,7 @@
             <div class="pf-user-photo">
                 <img src="pages/images/main/user.png" alt="">
             </div>
-            <h4 class="pf-user-name ellipsis">${user.account}</h4>
+            <h4 class="pf-user-name ellipsis">${admin.account}</h4>
             <i class="iconfont xiala">&#xe607;</i>
 
             <div class="pf-user-panel">
@@ -287,7 +287,7 @@
         $.messager.confirm("确认", "确定要重置密码吗？", function (r) {
             if (r) {
                 $.getJSON("/operator/resetpass", {
-                    id: ${user.id}
+                    id: ${admin.id}
                 }, function () {
 
                 });
@@ -385,7 +385,7 @@
     <form id="kkk" method="post">
         <table>
             <tr>
-                <input type="hidden" name="id" value="${user.id}"/>
+                <input type="hidden" name="id" value="${admin.id}"/>
                 <td align="right" class="wu-form-text">请输入原密码</td>
                 <td><input type="password" name="old"
                            class=" easyui-validatebox wu-text" required="required"/>

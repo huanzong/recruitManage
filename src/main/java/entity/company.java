@@ -1,61 +1,72 @@
 package entity;
 
-public class company {
-    private int id;//公司id
-    private int userId;//招聘人
-    private String name;//公司名称
-    private String comType;//公司类型：私企/国企
-    private String description;//公司描述
-    private String empCount;//公司人员数量，公司规模
-    private String address;//公司地址
-    private String email;//公司邮箱
-    private String comTel;//公司电话
-    private String manager;//公司法人
-    private String mTel;//公司管理者电话
-    private String trade;//公司所属行业
-    private String businessLicense;//公司营业执照
+import java.io.Serializable;
 
-    private int status;//审核状态，0待审核，1审核通过，2审核失败
+public class Company implements Serializable {
+    private Integer comId;
 
+    private String fullname;
 
-    public int getStatus() {
-        return status;
+    private String username;
+
+    private Integer userId;
+
+    private String comtype;
+
+    private String description;
+
+    private String empcount;
+
+    private String address;
+
+    private String email;
+
+    private String tel;
+
+    private String manager;
+
+    private String mTel;
+
+    private static final long serialVersionUID = 1L;
+
+    public Integer getComId() {
+        return comId;
     }
 
-    public void setStatus(int status) {
-        this.status = status;
+    public void setComId(Integer comId) {
+        this.comId = comId;
     }
 
-    public int getId() {
-        return id;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setFullname(String fullname) {
+        this.fullname = fullname == null ? null : fullname.trim();
     }
 
-    public int getUserId() {
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
+    }
+
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    public String getName() {
-        return name;
+    public String getComtype() {
+        return comtype;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getComType() {
-        return comType;
-    }
-
-    public void setComType(String comType) {
-        this.comType = comType;
+    public void setComtype(String comtype) {
+        this.comtype = comtype == null ? null : comtype.trim();
     }
 
     public String getDescription() {
@@ -63,15 +74,15 @@ public class company {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description = description == null ? null : description.trim();
     }
 
-    public String getEmpCount() {
-        return empCount;
+    public String getEmpcount() {
+        return empcount;
     }
 
-    public void setEmpCount(String empCount) {
-        this.empCount = empCount;
+    public void setEmpcount(String empcount) {
+        this.empcount = empcount == null ? null : empcount.trim();
     }
 
     public String getAddress() {
@@ -79,7 +90,7 @@ public class company {
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        this.address = address == null ? null : address.trim();
     }
 
     public String getEmail() {
@@ -87,15 +98,15 @@ public class company {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.email = email == null ? null : email.trim();
     }
 
-    public String getComTel() {
-        return comTel;
+    public String getTel() {
+        return tel;
     }
 
-    public void setComTel(String comTel) {
-        this.comTel = comTel;
+    public void setTel(String tel) {
+        this.tel = tel == null ? null : tel.trim();
     }
 
     public String getManager() {
@@ -103,7 +114,7 @@ public class company {
     }
 
     public void setManager(String manager) {
-        this.manager = manager;
+        this.manager = manager == null ? null : manager.trim();
     }
 
     public String getmTel() {
@@ -111,22 +122,51 @@ public class company {
     }
 
     public void setmTel(String mTel) {
-        this.mTel = mTel;
+        this.mTel = mTel == null ? null : mTel.trim();
     }
 
-    public String getTrade() {
-        return trade;
+    @Override
+    public boolean equals(Object that) {
+        if (this == that) {
+            return true;
+        }
+        if (that == null) {
+            return false;
+        }
+        if (getClass() != that.getClass()) {
+            return false;
+        }
+        Company other = (Company) that;
+        return (this.getComId() == null ? other.getComId() == null : this.getComId().equals(other.getComId()))
+            && (this.getFullname() == null ? other.getFullname() == null : this.getFullname().equals(other.getFullname()))
+            && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
+            && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
+            && (this.getComtype() == null ? other.getComtype() == null : this.getComtype().equals(other.getComtype()))
+            && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
+            && (this.getEmpcount() == null ? other.getEmpcount() == null : this.getEmpcount().equals(other.getEmpcount()))
+            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
+            && (this.getEmail() == null ? other.getEmail() == null : this.getEmail().equals(other.getEmail()))
+            && (this.getTel() == null ? other.getTel() == null : this.getTel().equals(other.getTel()))
+            && (this.getManager() == null ? other.getManager() == null : this.getManager().equals(other.getManager()))
+            && (this.getmTel() == null ? other.getmTel() == null : this.getmTel().equals(other.getmTel()));
     }
 
-    public void setTrade(String trade) {
-        this.trade = trade;
-    }
-
-    public String getBusinessLicense() {
-        return businessLicense;
-    }
-
-    public void setBusinessLicense(String businessLicense) {
-        this.businessLicense = businessLicense;
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((getComId() == null) ? 0 : getComId().hashCode());
+        result = prime * result + ((getFullname() == null) ? 0 : getFullname().hashCode());
+        result = prime * result + ((getUsername() == null) ? 0 : getUsername().hashCode());
+        result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
+        result = prime * result + ((getComtype() == null) ? 0 : getComtype().hashCode());
+        result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
+        result = prime * result + ((getEmpcount() == null) ? 0 : getEmpcount().hashCode());
+        result = prime * result + ((getAddress() == null) ? 0 : getAddress().hashCode());
+        result = prime * result + ((getEmail() == null) ? 0 : getEmail().hashCode());
+        result = prime * result + ((getTel() == null) ? 0 : getTel().hashCode());
+        result = prime * result + ((getManager() == null) ? 0 : getManager().hashCode());
+        result = prime * result + ((getmTel() == null) ? 0 : getmTel().hashCode());
+        return result;
     }
 }

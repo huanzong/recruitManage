@@ -1,7 +1,7 @@
 package controller.back;
 
 import controller.Abase.Basic_controller;
-import entity.company;
+import entity.Company;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("company")
-public class companyBack_Controller extends Basic_controller<company> {
+public class companyBack_Controller extends Basic_controller<Company> {
 
     @Resource(name = "companyBack_serviceImpl")
     companyBack_serviceImpl service;
@@ -52,9 +52,9 @@ public class companyBack_Controller extends Basic_controller<company> {
         if (id == 0) {
             return null;
         }
-        company company = service.getById(id);
+        Company company = service.getById(id);
         if (status == 0 && checkStatus == 1 || checkStatus == 2) {
-            company.setStatus(checkStatus);
+//            company.setStatus(checkStatus);
         }
         service.update(company);
         return index(new Search(), req);

@@ -48,7 +48,7 @@ public class operator_controller extends Basic_controller<operator> {
         operator info = service.login(t);
         if (info == null) return "redirect:../login.jsp";
         req.getSession().setMaxInactiveInterval(500000);
-        req.getSession().setAttribute("user", info);
+        req.getSession().setAttribute("admin", info);
         return "redirect:../main.jsp";
     }
 
@@ -60,7 +60,7 @@ public class operator_controller extends Basic_controller<operator> {
      */
     @RequestMapping("out")
     public String out(ModelMap m, HttpServletRequest req) {
-        req.getSession().removeAttribute("user");
+        req.getSession().removeAttribute("admin");
         return "redirect:../login.jsp";
     }
 

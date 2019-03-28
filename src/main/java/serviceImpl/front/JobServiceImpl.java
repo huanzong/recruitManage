@@ -2,6 +2,7 @@ package serviceImpl.front;
 
 import dto.JobDto;
 import entity.Job;
+import entity.TopJob;
 import mapper.front.JobDao;
 import org.springframework.stereotype.Service;
 import service.front.JobService;
@@ -19,6 +20,19 @@ public class JobServiceImpl implements JobService {
     @Resource
     JobDao jobDao;
 
+    public boolean saveJob(Job job) {
+        try {
+            jobDao.insert(job);
+            TopJob tj = new TopJob();
+            tj.setCount(0);
+            tj.setJobId(job.getJobId());
+            tj.setJobName(job.getJobName());
+            jobDao.insertTopJob(tj);
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
 
     public List<JobDto> findTen() {
         return jobDao.findTopTen();

@@ -1,0 +1,29 @@
+package controller.front;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+
+
+@Controller
+@RequestMapping("/blog")
+public class BlogController {
+	
+	
+	@RequestMapping(value = "/goBlog")
+	public ModelAndView goAllBlog(HttpServletRequest request) {
+		ModelAndView view = new ModelAndView();
+    	view.setViewName("views/blog/blogs");
+		return view;
+	}
+
+	@RequestMapping(value = "/goContactUs")
+	public ModelAndView goContectUs(HttpServletRequest request) {
+		ModelAndView view = new ModelAndView();
+    	view.setViewName("views/blog/contactUs");
+		return view;
+	}
+	
+}

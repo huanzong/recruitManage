@@ -1,19 +1,13 @@
 package controller.front;
 
 import dto.JobDto;
-import entity.ComResume;
-import entity.Emp;
-import entity.Job;
-import entity.user;
+import entity.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import service.front.EmpService;
-import service.front.InfoService;
-import service.front.JobService;
-import service.front.ResumeService;
+import service.front.*;
 import utils.BaseResponse;
 import utils.JqueryDto;
 import utils.Pager;
@@ -36,6 +30,8 @@ public class JobController {
     ResumeService resumeService;
     @Resource
     InfoService infoService;
+    @Resource
+    CompanyService companyService;
 
     /**
      * 用于前台首页展示职位列表以及点击量
@@ -71,10 +67,11 @@ public class JobController {
 
     /**
      * 用于 跳转职位列表页
+     *
      * @return
      */
     @RequestMapping(value = "/goJobList")
-    public ModelAndView  goJobList() {
+    public ModelAndView goJobList() {
         ModelAndView view = new ModelAndView();
         view.setViewName("views/job/jobList");
         return view;
@@ -82,17 +79,52 @@ public class JobController {
 
     /**
      * 用于跳转求职列表页
+     *
      * @return
      */
     @RequestMapping(value = "/goInfoList")
-    public ModelAndView  goInfoList() {
+    public ModelAndView goInfoList() {
         ModelAndView view = new ModelAndView();
         view.setViewName("views/info/listInfo");
         return view;
     }
 
     /**
+     * 跳转发布招聘信息页面
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/goSaveJob")
+    public ModelAndView goSaveJob(HttpServletRequest request) {
+//        user user = (user) request.getSession().getAttribute("user");
+//        if (user == null) {
+//            return null;
+//        }
+        ModelAndView view = new ModelAndView();
+        view.setViewName("views/job/jobRegister");
+        return view;
+    }
+
+    /**
+     * 进入招聘信息管理界面
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/goComJobList")
+    public ModelAndView goComJobList(HttpServletRequest request) {
+        user user = (user) request.getSession().getAttribute("user");
+        if (user == null) {
+
+        }
+        ModelAndView view = new ModelAndView();
+        view.setViewName("views/job/jobManager");
+        return view;
+    }
+
+    /**
      * 用于列表页查询职位列表
+     *
      * @param request
      * @param response
      * @param jobName
@@ -110,6 +142,7 @@ public class JobController {
 
     /**
      * 用于查询求职列表
+     *
      * @param request
      * @param response
      * @param status
@@ -117,12 +150,11 @@ public class JobController {
      * @return
      */
     @ResponseBody
-    @RequestMapping(value="findInfoList", method = RequestMethod.POST)
-    public JqueryDto findInfoList(HttpServletRequest request,HttpServletResponse response,int status,int isApply){
-        Pager	pager = PagerUtils.getPager(request);
-        return infoService.findInfoList(pager, 0,status,isApply);
+    @RequestMapping(value = "findInfoList", method = RequestMethod.POST)
+    public JqueryDto findInfoList(HttpServletRequest request, HttpServletResponse response, int status, int isApply) {
+        Pager pager = PagerUtils.getPager(request);
+        return infoService.findInfoList(pager, 0, status, isApply);
     }
-
 
 
     /**
@@ -178,6 +210,46 @@ public class JobController {
 
     }
 
+    /**
+     * 保存招聘相关信息
+     *
+     * @return
+     */
+    @RequestMapping(value = "/saveJob", method = RequestMethod.POST)
+    public void saveJob(Job job, HttpServletRequest request, HttpServletResponse response) {
+        user user = (user) request.getSession().getAttribute("user");
+        if (user == null) {
+            try {
+                response.setContentType("text/html;charset=utf-8");
+                response.getWriter().print(2);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return;
+        }
+        Company com = companyService.findByUid(user.getId());
+        boolean iscom;
+        if (com == null) {
+            iscom = false;
+        } else {
+            iscom = true;
+        }
+        try {
+            if (iscom) {
+                job.setComId(com.getComId());
+                boolean flag = jobService.saveJob(job);
+                if (flag) {
+                    response.setContentType("text/html;charset=utf-8");
+                    response.getWriter().print(1);
+                }
+            } else {
+                response.setContentType("text/html;charset=utf-8");
+                response.getWriter().print(3);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+    }
 
 }

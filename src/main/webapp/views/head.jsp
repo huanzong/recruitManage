@@ -179,13 +179,11 @@
                     </div>
                 </li>
                 <li class="relative f_xs_none m_xs_bottom_5"><a href="#"
-                                                                class="tr_delay_hover color_light tt_uppercase"><b>博客</b></a>
+                                                                class="tr_delay_hover color_light tt_uppercase"><b>新闻</b></a>
                     <!--sub menu-->
                     <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
                         <ul class="sub_menu">
-                            <li><a class="color_dark tr_delay_hover" href="<%=request.getContextPath()%>/blog/goBlog">职场博客</a>
-                            </li>
-                            <!-- <li><a class="color_dark tr_delay_hover" href="javascript: void(0);"  onclick="showNo();">我的博客</a></li> -->
+                            <li><a class="color_dark tr_delay_hover" href="<%=request.getContextPath()%>/blog/goBlog">职场新闻</a>
                         </ul>
                     </div>
                 </li>

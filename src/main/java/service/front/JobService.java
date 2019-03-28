@@ -10,6 +10,8 @@ import java.util.List;
 
 public interface JobService {
 
+    public boolean saveJob(Job job);
+
     public List<JobDto> findTen();
 
     public JobDto findByJobId(int id);

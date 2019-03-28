@@ -1,6 +1,6 @@
 package mapper.back;
 
-import entity.company;
+import entity.Company;
 import entity.operator;
 import mapper.Abase.Basic_mapper;
 import org.apache.ibatis.annotations.Delete;
@@ -24,6 +24,6 @@ public interface companyBack_mapper extends Basic_mapper {
     public void delete(int id);
 
     @Select("select * from company where id=#{id}")
-    public company getById(int id);
+    public Company getById(int id);
 
 }
