@@ -76,7 +76,7 @@
                         <ul class="horizontal_list clearfix bc_list f_size_medium">
                             <li class="m_right_10 current"><a href="#" class="default_t_color">招聘之家<i
                                     class="fa fa-angle-right d_inline_middle m_left_10"></i></a></li>
-                            <li><a href="#" class="default_t_color">新闻</a></li>
+                            <li><a href="#" class="default_t_color">技巧</a></li>
                         </ul>
                     </div>
                 </section>
@@ -86,7 +86,7 @@
                         <div class="row clearfix">
                             <!--left content column-->
                             <section id="xinwen" class="col-lg-9 col-md-9 col-sm-9">
-                                <h2 class="tt_uppercase color_dark m_bottom_25">新闻</h2>
+                                <h2 class="tt_uppercase color_dark m_bottom_25">技巧</h2>
                                 <!--blog post-->
 
 
@@ -126,7 +126,7 @@
                                 <!--Popular articles-->
                                 <figure class="widget shadow r_corners wrapper m_bottom_30">
                                     <figcaption>
-                                        <h3 class="color_light">人气新闻</h3>
+                                        <h3 class="color_light">热门技巧</h3>
                                     </figcaption>
                                     <div class="widget_content">
                                         <article class="clearfix m_bottom_15">
@@ -154,7 +154,7 @@
                                 <!--Bestsellers-->
                                 <figure class="widget shadow r_corners wrapper m_bottom_30">
                                     <figcaption>
-                                        <h3 class="color_light">最新新闻</h3>
+                                        <h3 class="color_light">最新技巧</h3>
                                     </figcaption>
                                     <div class="widget_content">
                                         <div class="clearfix m_bottom_15">
@@ -251,7 +251,7 @@
                                 <!--Specials-->
                                 <figure class="widget shadow r_corners wrapper m_bottom_30">
                                     <figcaption class="clearfix relative">
-                                        <h3 class="color_light f_left f_sm_none m_sm_bottom_10 m_xs_bottom_0">小编新闻</h3>
+                                        <h3 class="color_light f_left f_sm_none m_sm_bottom_10 m_xs_bottom_0">小编技巧</h3>
                                         <div class="f_right nav_buttons_wrap_type_2 tf_sm_none f_sm_none clearfix">
                                             <button class="button_type_7 bg_cs_hover box_s_none f_size_ex_large color_light t_align_c bg_tr f_left tr_delay_hover r_corners sc_prev">
                                                 <i class="fa fa-angle-left"></i></button>
@@ -323,7 +323,7 @@
 <script>
     $(function () {
         $.ajax({
-            url: "/news/index",
+            url: "/jobskill/index",
             type: "post",
             dataType: "json",
             data: {
@@ -340,19 +340,19 @@
                             '<h4 class="m_bottom_5"><a  href="#" class="color_dark fw_medium">' + dataInfo.title + '</a></h4>' +
                             '<p id="createTime" class="f_size_medium">' + dataInfo.createTime + ' <a href="#" class="color_dark"></a>, </p></div>' +
                             '<div class="col-lg-3 col-md-3 col-sm-3 t_align_r t_sm_align_l">' +
-                            '<p  class="f_size_medium d_sm_inline_middle">' + dataInfo.newsArea + '</p>';
-                        if (dataInfo.newsStar > 0) {
+                            '';
+                        if (dataInfo.isHot == 1) {
                             var html1 = '<ul class="horizontal_list d_inline_middle type_2 clearfix rating_list tr_all_hover">'
-                            for (var j = 1; j <= dataInfo.newsStar; j++) {
-                                if (j > 6) {
-                                    break;
-                                }
-                                html1 += '<li class = "active" > <i class = "fa fa-star-o empty tr_all_hover" > </i> <i class = "fa fa-star active tr_all_hover" > </i> </li>';
-                            }
+                            html1 += '<li class = "active" > 热</li><li class = "active" > 门</li><li class = "active" > 技</li><li class = "active" > 巧</li>';
+                            html1 += '</ul>';
+                        }
+                        if (dataInfo.isHot == 0) {
+                            var html1 = '<ul class="horizontal_list d_inline_middle type_2 clearfix rating_list tr_all_hover">'
+                            html1 += '<li class = "active" > 非</li><li class = "active" > 热</li><li class = "active" > 门</li>';
                             html1 += '</ul>';
                         }
                         html += html1;
-                        html += '<a href = "#" class = "d_inline_middle f_size_medium default_t_color m_left_5" > (' + dataInfo.newsStar + ' Vote)</a></div></div>' +
+                        html += '</div></div>' +
                             '<p class = "m_bottom_10" >' + dataInfo.content + ' </p></article>' +
                             '<hr class = "divider_type_3 m_bottom_30" >'
 

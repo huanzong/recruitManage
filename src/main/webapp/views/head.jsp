@@ -188,13 +188,12 @@
                     </div>
                 </li>
                 <li class="relative f_xs_none m_xs_bottom_5"><a href="#"
-                                                                class="tr_delay_hover color_light tt_uppercase"><b>知名企业</b></a>
+                                                                class="tr_delay_hover color_light tt_uppercase"><b>求职技巧</b></a>
                     <!--sub menu-->
                     <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
                         <ul class="sub_menu">
                             <li><a class="color_dark tr_delay_hover"
-                                   href="<%=request.getContextPath()%>/com/goAllCompany">查看知名企业</a></li>
-                            <!-- <li><a class="color_dark tr_delay_hover" href="javascript: void(0);"  onclick="showNo();">我收藏的企业</a></li> -->
+                                   href="<%=request.getContextPath()%>/jobskill/goBlog">查看求职技巧</a></li>
                         </ul>
                     </div>
                 </li>

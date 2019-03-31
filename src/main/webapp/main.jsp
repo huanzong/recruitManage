@@ -48,7 +48,7 @@
                     <li class="pf-nav-item manger" data-menu="supplier-dev">
                         <a class="churuClick" href="javascript:;">
                             <span class="iconfont">&#xe625;</span>
-                            <span class="pf-nav-title">无</span>
+                            <span class="pf-nav-title">新闻管理</span>
                         </a>
                     </li>
 
@@ -168,7 +168,7 @@
                     </a>
                     <ul class="sider-nav-s">
                         <li><a class="quanxian GLClick" power="管理员管理" href="#"
-                               onclick="addTab('管理员信息','pages/Stock/operator/operator.jsp')">管理员信息</a></li>
+                               onclick="addTab('管理员信息','pages/Stock/operator/opterator.jsp')">管理员信息</a></li>
                     </ul>
                 </li>
                 <li class="mokuai">
@@ -191,6 +191,43 @@
                     <ul class="sider-nav-s">
                         <li><a href="#" class="ygClick quanxian" power="公司管理"
                                onclick="addTab('公司管理','pages/Stock/company/company.jsp')">公司管理</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="mokuai">
+                    <a href="javascript:;">
+                        <span class="iconfont sider-nav-icon">&#xe620;</span>
+                        <span class="sider-nav-title">新闻管理</span>
+                        <i class="iconfont">&#xe642;</i>
+                    </a>
+                    <ul class="sider-nav-s">
+                        <li><a href="#" class="newsClick quanxian"
+                               onclick="addTab('新闻管理','pages/Stock/news/news.jsp')">新闻管理</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="mokuai">
+                    <a href="javascript:;">
+                        <span class="iconfont sider-nav-icon">&#xe620;</span>
+                        <span class="sider-nav-title">招聘会管理</span>
+                        <i class="iconfont">&#xe642;</i>
+                    </a>
+                    <ul class="sider-nav-s">
+                        <li><a href="#" class="newsClick quanxian"
+                               onclick="addTab('招聘会管理','pages/Stock/jobFair/jobFair.jsp')">招聘会管理</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="mokuai">
+                    <a href="javascript:;">
+                        <span class="iconfont sider-nav-icon">&#xe620;</span>
+                        <span class="sider-nav-title">求职技巧管理</span>
+                        <i class="iconfont">&#xe642;</i>
+                    </a>
+                    <ul class="sider-nav-s">
+                        <li><a href="#" class="newsClick quanxian"
+                               onclick="addTab('求职技巧管理','pages/Stock/jobskill/jobskill.jsp')">求职技巧管理</a>
                         </li>
                     </ul>
                 </li>
@@ -336,9 +373,9 @@
 
 
 
-    //顶部按钮书籍信息
-    $(".yonghuClick").click(function () {
-        $(".yonghu").click();
+    //顶部按钮新闻管理
+    $(".churuClick").click(function () {
+        $(".newsClick").click();
 
     });
 

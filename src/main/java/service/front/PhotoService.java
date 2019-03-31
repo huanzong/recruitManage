@@ -11,4 +11,6 @@ public boolean saveDpersonImage(HttpServletRequest request, MultipartFile file, 
 
 public boolean saveEpersonImage(HttpServletRequest request, MultipartFile file, Integer id);
 
+public boolean saveNewsImage(HttpServletRequest request, MultipartFile file, Integer id);
+
 }
