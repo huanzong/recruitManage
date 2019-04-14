@@ -39,7 +39,7 @@ public interface JobDao {
             "j.end_date AS endDate," +
             "j.description AS description," +
             "c.fullname AS fullname," +
-            "c.user_id AS userId," +
+            "c.userId AS userId," +
             "c.comtype AS comtype," +
             "c.description AS comDescription," +
             "c.empcount AS empcount," +
@@ -47,19 +47,19 @@ public interface JobDao {
             "c.email AS email," +
             "c.tel AS tel," +
             "c.manager AS manager," +
-            "c.m_tel AS mTel" +
+            "c.mTel AS mTel" +
             " FROM " +
             " job AS j" +
-            " INNER JOIN company AS c ON j.com_id = c.com_id where j.job_id=#{id}")
+            " INNER JOIN company AS c ON j.com_id = c.comId where j.job_id=#{id}")
     public JobDto findByJobId(int id);
 
     @Update("update top_job t set t.count=t.count+1 where t.job_id=#{jobId,jdbcType=INTEGER}")
     public int updateTopJob(int jobId);
 
-    @Select("SELECT COUNT(j.job_id) FROM job AS j INNER JOIN company AS c ON j.com_id = c.com_id where 1=1 ${where}")
+    @Select("SELECT COUNT(j.job_id) FROM job AS j INNER JOIN company AS c ON j.com_id = c.comId where 1=1 ${where}")
     public int findJobListCount(Search info);
 
-    @Select("SELECT j.job_id AS jobId,j.com_id AS comId,j.job_name AS jobName,j.job_PersonCount AS jobPersoncount,j.degree AS degree,j.language AS language,j.grade,j.address AS address,j.salary AS salary,j.job_status AS jobStatus,j.start_date AS startDate,j.end_date AS endDate,j.description AS description,c.fullname AS fullname FROM job AS j INNER JOIN company AS c ON j.com_id = c.com_id where 1=1 ${where} ${sort} ${limit}")
+    @Select("SELECT j.job_id AS jobId,j.com_id AS comId,j.job_name AS jobName,j.job_PersonCount AS jobPersoncount,j.degree AS degree,j.language AS language,j.grade,j.address AS address,j.salary AS salary,j.job_status AS jobStatus,j.start_date AS startDate,j.end_date AS endDate,j.description AS description,c.fullname AS fullname FROM job AS j INNER JOIN company AS c ON j.com_id = c.comId where 1=1 ${where} ${sort} ${limit}")
     public List<JobDto> findJobList(Search info);
 
     @Insert("insert into top_job (job_id, job_name, count) values (#{jobId,jdbcType=INTEGER}, #{jobName,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER})")

@@ -176,17 +176,17 @@ public class JobController {
         try {
             //查询用户对应的简历是否存在
             Emp emp = empService.findByUserId(user.getId());
-            if (emp == null || emp.getResumeName() == null || "".endsWith(emp.getResumeName())) {
+            if (emp == null || emp.getResume_name() == null || "".endsWith(emp.getResume_name())) {
                 response.setContentType("text/html;charset=utf-8");
                 response.getWriter().print(3);
                 return;
             }
             ComResume cr = new ComResume();
-            cr.setComId(dto.getComId());
-            cr.setEmpId(emp.getEmpId());
-            cr.setJobId(dto.getJobId());
+            cr.setCom_id(dto.getComId());
+            cr.setEmp_id(emp.getEmpId());
+            cr.setJob_id(dto.getJobId());
             cr.setLook(0);
-            cr.setResumeName(emp.getResumeName());
+            cr.setResume_name(emp.getResume_name());
             cr.setStatus("0");
             //保存职位申请信息
             boolean f = resumeService.saveResume(cr);

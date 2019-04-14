@@ -103,7 +103,7 @@ $obj = $("#tt");
                 width : 150,  
                 align : 'center',  
                 formatter:function(value,row,index){  
-                                var s = '<a href="<%=path%>/user/goCommond?id='+row.infoId+'" class="ope-save">查看详情</a> '; 
+                                var s = '<a href="<%=path%>/com/goCommond?id='+row.infoId+'" class="ope-save">查看详情</a> ';
              return s;        
                 }  
         } ] ],  
@@ -185,7 +185,7 @@ function find(){
                 width : 150,  
                 align : 'center',  
                 formatter:function(value,row,index){  
-                                var s = '<a href="<%=path%>/user/goCommond?id='+row.infoId+'" class="ope-save">查看详情</a> '; 
+                                var s = '<a href="<%=path%>/com/goCommond?id='+row.infoId+'" class="ope-save">查看详情</a> ';
              return s;        
                 }  
         } ] ],  

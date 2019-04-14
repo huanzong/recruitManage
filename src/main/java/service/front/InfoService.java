@@ -13,4 +13,6 @@ public interface InfoService {
 
     public JqueryDto findMyInfoList(Pager pager, int userId);
 
+    public Info findById(int id);
+
 }

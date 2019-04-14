@@ -31,9 +31,9 @@ public class Emp implements Serializable {
 
     private String image;
 
-    private String resumeName;
+    private String resume_name;
 
-    private Integer userId;
+    private Integer user_id;
 
     private String country;
 
@@ -167,20 +167,20 @@ public class Emp implements Serializable {
         this.image = image == null ? null : image.trim();
     }
 
-    public String getResumeName() {
-        return resumeName;
+    public String getResume_name() {
+        return resume_name;
     }
 
-    public void setResumeName(String resumeName) {
-        this.resumeName = resumeName == null ? null : resumeName.trim();
+    public void setResume_name(String resume_name) {
+        this.resume_name = resume_name;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 
     public String getCountry() {
@@ -281,8 +281,8 @@ public class Emp implements Serializable {
             && (this.getSalary() == null ? other.getSalary() == null : this.getSalary().equals(other.getSalary()))
             && (this.getJobstatus() == null ? other.getJobstatus() == null : this.getJobstatus().equals(other.getJobstatus()))
             && (this.getImage() == null ? other.getImage() == null : this.getImage().equals(other.getImage()))
-            && (this.getResumeName() == null ? other.getResumeName() == null : this.getResumeName().equals(other.getResumeName()))
-            && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
+            && (this.getResume_name() == null ? other.getResume_name() == null : this.getResume_name().equals(other.getResume_name()))
+            && (this.getUser_id() == null ? other.getUser_id() == null : this.getUser_id().equals(other.getUser_id()))
             && (this.getCountry() == null ? other.getCountry() == null : this.getCountry().equals(other.getCountry()))
             && (this.getQq() == null ? other.getQq() == null : this.getQq().equals(other.getQq()))
             && (this.getHj() == null ? other.getHj() == null : this.getHj().equals(other.getHj()))
@@ -312,8 +312,8 @@ public class Emp implements Serializable {
         result = prime * result + ((getSalary() == null) ? 0 : getSalary().hashCode());
         result = prime * result + ((getJobstatus() == null) ? 0 : getJobstatus().hashCode());
         result = prime * result + ((getImage() == null) ? 0 : getImage().hashCode());
-        result = prime * result + ((getResumeName() == null) ? 0 : getResumeName().hashCode());
-        result = prime * result + ((getUserId() == null) ? 0 : getUserId().hashCode());
+        result = prime * result + ((getResume_name() == null) ? 0 : getResume_name().hashCode());
+        result = prime * result + ((getUser_id() == null) ? 0 : getUser_id().hashCode());
         result = prime * result + ((getCountry() == null) ? 0 : getCountry().hashCode());
         result = prime * result + ((getQq() == null) ? 0 : getQq().hashCode());
         result = prime * result + ((getHj() == null) ? 0 : getHj().hashCode());

@@ -12,12 +12,13 @@ public class ResumeServiceImpl implements ResumeService {
 	@Resource
 	ComResumeMapper resumeMapper;
 
-	public boolean saveResume(ComResume user) {
-		int i=resumeMapper.insert(user);
-		if (i > 0) {
+	public boolean saveResume(ComResume comResume) {
+		try {
+			resumeMapper.insert(comResume);
 			return true;
+		} catch (Exception e){
+			return false;
 		}
-		return false;
 	}
 
 }

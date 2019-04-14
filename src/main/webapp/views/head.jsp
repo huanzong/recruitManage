@@ -155,7 +155,7 @@
                             <li><a class="color_dark tr_delay_hover" href="<%=request.getContextPath()%>/emp/goEmpInfo">我的简历</a>
                             </li>
                             <li><a class="color_dark tr_delay_hover"
-                                   href="<%=request.getContextPath()%>/emp/goHistoryJobList">浏览职位历史</a></li>
+                                   href="<%=request.getContextPath()%>/emp/goHistoryJobList">职位申请列表</a></li>
                             <!-- <li><a class="color_dark tr_delay_hover" href="javascript: void(0);"  onclick="showNo();">我的收藏</a></li> -->
                         </ul>
                     </div>

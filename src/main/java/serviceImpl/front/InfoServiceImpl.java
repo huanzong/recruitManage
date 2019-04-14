@@ -66,4 +66,8 @@ public class InfoServiceImpl implements InfoService {
         dto.setRows(list);
         return dto;
     }
+
+    public Info findById(int id) {
+        return infoMapper.findById(id);
+    }
 }

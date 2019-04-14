@@ -77,7 +77,7 @@ public class EmpController {
     @RequestMapping(value = "/saveEmp")
     public void saveEmp(Emp emp, HttpServletRequest request, HttpServletResponse response) {
         user user = (user) request.getSession().getAttribute("user");
-        emp.setUserId(user.getId());
+        emp.setUser_id(user.getId());
         boolean flag = empService.saveEmp(emp);
         try {
             if (flag) {
@@ -102,7 +102,7 @@ public class EmpController {
     @RequestMapping(value = "/updateEmp")
     public void updateEmp(Emp emp, HttpServletRequest request, HttpServletResponse response) {
         user user = (user) request.getSession().getAttribute("user");
-        emp.setUserId(user.getId());
+        emp.setUser_id(user.getId());
         boolean flag = empService.updateEmp(emp);
         try {
             if (flag) {
@@ -166,7 +166,7 @@ public class EmpController {
     @RequestMapping(value = "/goHistoryJobList")
     public ModelAndView goHistoryJobList() {
         ModelAndView view = new ModelAndView();
-        view.setViewName("job/historyJobList");
+        view.setViewName("views/job/historyJobList");
         return view;
     }
 
@@ -174,19 +174,18 @@ public class EmpController {
      * 查看浏览职位的历史
      *
      * @param request
-     * @param response
      * @param job
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "findHistoryJobList")
-    public JqueryDto findHistoryJobList(HttpServletRequest request, HttpServletResponse response, Job job) {
+    public JqueryDto findHistoryJobList(HttpServletRequest request, Job job) {
         //查询总数
         user user = (user) request.getSession().getAttribute("user");
         if (user == null || user.getStatus() == 2) {
             return null;
         }
         Pager pager = PagerUtils.getPager(request);
-        return jobService.findHistoryJobList(pager, job, user.getId());
+        return jobService.findHistoryJobList(pager, user.getId());
     }
 }

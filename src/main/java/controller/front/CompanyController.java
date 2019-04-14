@@ -2,12 +2,14 @@ package controller.front;
 
 
 import entity.Company;
+import entity.Info;
 import entity.user;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import service.front.CompanyService;
+import service.front.InfoService;
 import utils.BaseResponse;
 
 import javax.annotation.Resource;
@@ -23,6 +25,8 @@ public class CompanyController {
 
     @Resource
     CompanyService companyService;
+    @Resource
+    InfoService infoService;
 
     /**
      * 用于保存公司信息
@@ -100,6 +104,15 @@ public class CompanyController {
     public ModelAndView goCompanyInfo(HttpServletRequest request) {
         ModelAndView view = new ModelAndView();
         view.setViewName("views/user/comInfo");
+        return view;
+    }
+
+    @RequestMapping(value = "/goCommond")
+    public ModelAndView  goCommond(int id) {
+        Info info=infoService.findById(id);
+        ModelAndView view = new ModelAndView();
+        view.addObject("info", info);
+        view.setViewName("views/info/commond");
         return view;
     }
 

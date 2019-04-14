@@ -3,15 +3,15 @@ package entity;
 import java.io.Serializable;
 
 public class ComResume implements Serializable {
-    private Integer resumeId;
+    private Integer resume_id;
 
-    private Integer comId;
+    private Integer com_id;
 
-    private Integer jobId;
+    private Integer job_id;
 
-    private Integer empId;
+    private Integer emp_id;
 
-    private String resumeName;
+    private String resume_name;
 
     private String status;
 
@@ -19,44 +19,44 @@ public class ComResume implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getResumeId() {
-        return resumeId;
+    public Integer getResume_id() {
+        return resume_id;
     }
 
-    public void setResumeId(Integer resumeId) {
-        this.resumeId = resumeId;
+    public void setResume_id(Integer resume_id) {
+        this.resume_id = resume_id;
     }
 
-    public Integer getComId() {
-        return comId;
+    public Integer getCom_id() {
+        return com_id;
     }
 
-    public void setComId(Integer comId) {
-        this.comId = comId;
+    public void setCom_id(Integer com_id) {
+        this.com_id = com_id;
     }
 
-    public Integer getJobId() {
-        return jobId;
+    public Integer getJob_id() {
+        return job_id;
     }
 
-    public void setJobId(Integer jobId) {
-        this.jobId = jobId;
+    public void setJob_id(Integer job_id) {
+        this.job_id = job_id;
     }
 
-    public Integer getEmpId() {
-        return empId;
+    public Integer getEmp_id() {
+        return emp_id;
     }
 
-    public void setEmpId(Integer empId) {
-        this.empId = empId;
+    public void setEmp_id(Integer emp_id) {
+        this.emp_id = emp_id;
     }
 
-    public String getResumeName() {
-        return resumeName;
+    public String getResume_name() {
+        return resume_name;
     }
 
-    public void setResumeName(String resumeName) {
-        this.resumeName = resumeName == null ? null : resumeName.trim();
+    public void setResume_name(String resume_name) {
+        this.resume_name = resume_name;
     }
 
     public String getStatus() {
@@ -75,38 +75,4 @@ public class ComResume implements Serializable {
         this.look = look;
     }
 
-    @Override
-    public boolean equals(Object that) {
-        if (this == that) {
-            return true;
-        }
-        if (that == null) {
-            return false;
-        }
-        if (getClass() != that.getClass()) {
-            return false;
-        }
-        ComResume other = (ComResume) that;
-        return (this.getResumeId() == null ? other.getResumeId() == null : this.getResumeId().equals(other.getResumeId()))
-            && (this.getComId() == null ? other.getComId() == null : this.getComId().equals(other.getComId()))
-            && (this.getJobId() == null ? other.getJobId() == null : this.getJobId().equals(other.getJobId()))
-            && (this.getEmpId() == null ? other.getEmpId() == null : this.getEmpId().equals(other.getEmpId()))
-            && (this.getResumeName() == null ? other.getResumeName() == null : this.getResumeName().equals(other.getResumeName()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getLook() == null ? other.getLook() == null : this.getLook().equals(other.getLook()));
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((getResumeId() == null) ? 0 : getResumeId().hashCode());
-        result = prime * result + ((getComId() == null) ? 0 : getComId().hashCode());
-        result = prime * result + ((getJobId() == null) ? 0 : getJobId().hashCode());
-        result = prime * result + ((getEmpId() == null) ? 0 : getEmpId().hashCode());
-        result = prime * result + ((getResumeName() == null) ? 0 : getResumeName().hashCode());
-        result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
-        result = prime * result + ((getLook() == null) ? 0 : getLook().hashCode());
-        return result;
-    }
 }

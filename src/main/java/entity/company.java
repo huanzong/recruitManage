@@ -1,5 +1,7 @@
 package entity;
 
+import utils.Values;
+
 import java.io.Serializable;
 
 public class Company implements Serializable {
@@ -26,6 +28,17 @@ public class Company implements Serializable {
     private String manager;
 
     private String mTel;
+
+    private int status;//审核状态
+    private String statusname;
+
+    public String getStatusname() {
+        return Values.user_status[status][1];
+    }
+
+    public void setStatusname(String statusname) {
+        this.statusname = statusname;
+    }
 
     private static final long serialVersionUID = 1L;
 
@@ -66,7 +79,7 @@ public class Company implements Serializable {
     }
 
     public void setComtype(String comtype) {
-        this.comtype = comtype == null ? null : comtype.trim();
+        this.comtype = comtype;
     }
 
     public String getDescription() {
@@ -82,7 +95,7 @@ public class Company implements Serializable {
     }
 
     public void setEmpcount(String empcount) {
-        this.empcount = empcount == null ? null : empcount.trim();
+        this.empcount = empcount;
     }
 
     public String getAddress() {
@@ -123,6 +136,14 @@ public class Company implements Serializable {
 
     public void setmTel(String mTel) {
         this.mTel = mTel == null ? null : mTel.trim();
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     @Override

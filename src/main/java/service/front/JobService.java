@@ -18,6 +18,6 @@ public interface JobService {
 
     public JqueryDto findJobList(Pager pager, Job job);
 
-    public JqueryDto findHistoryJobList(Pager pager,Job job,int userId);
+    public JqueryDto findHistoryJobList(Pager pager, int userId);
 
 }
