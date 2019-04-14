@@ -123,7 +123,8 @@
                 data: $("#comInfoform").serialize(),
                 success: function (data, textStatus, jqXHR) {
                     if (data == 1) {
-                        swal("数据保存成功!");
+                        swal("数据保存成功,公司待审核!");
+                        window.location.href = "<%=request.getContextPath()%>/userSave/goMain";
                     } else if(data == 2) {
                         swal("请登录后进行操作!");
                     } else if(data == 3){

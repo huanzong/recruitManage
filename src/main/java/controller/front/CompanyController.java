@@ -14,8 +14,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 
-import static utils.Values.JOB_SEEKER_STATUS;
-import static utils.Values.RECRUITER_STATUS;
+import static utils.Values.*;
 
 
 @Controller
@@ -120,14 +119,15 @@ public class CompanyController {
         if (user.getType() == JOB_SEEKER_STATUS) {
             return "3";
         }
+        com.setStatus(USER_STATUS_NOChECK);
         com.setUserId(user.getId());
-        boolean flag = false;
-        if (com.getComId() != null || com.getComId() != 0 ) {
+        com.setUsername(user.getAccount());
+        boolean flag;
+        if (null != com.getComId() && 0 != com.getComId()) {
             flag = companyService.updateCompany(com);
         } else {
             flag = companyService.saveCompany(com);
         }
-
         if (flag) {
             return "1";
         }

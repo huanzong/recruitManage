@@ -26,24 +26,26 @@
 <script type="text/javascript">
     $(function () {
         cols = [
-            {field: 'name', title: '公司名称', width: 80, sortable: true},
-            {field: 'userId', title: '登录账户', width: 80, sortable: true},
-            {field: 'comType', title: '公司类型', width: 80, sortable: true},
+            {field: 'fullname', title: '公司名称', width: 80, sortable: true},
+            {field: 'username', title: '登录账户', width: 80, sortable: true},
+            {field: 'comtype', title: '公司类型', width: 80, sortable: true},
             {field: 'description', title: '公司描述', width: 80, sortable: true},
-            {field: 'trade', title: '所属行业', width: 80, sortable: true},
-            {field: 'comTel', title: '公司电话', width: 80, sortable: true},
+            {field: 'tel', title: '公司电话', width: 80, sortable: true},
+            {field: 'address', title: '公司地址', width: 80, sortable: true},
+            {field: 'manager', title: '公司法人', width: 80, sortable: true},
+            {field: 'mTel', title: '法人电话', width: 80, sortable: true},
             {field: 'statusname', title: '审核状态', width: 80, sortable: true},
             {
                 field: 'opt', title: '操作', width: 80, align: 'center',
                 formatter: function (value, rec) {
                     var btn = "";
                     if (rec.status == 0) {
-                        btn = "<a class='easyui-linkbutton' iconCls='icon-search' href='javascript:;' onclick='check(" + rec.id + "," + rec.status + "," + 1 + ")'>通过</a>";
-                        btn += "<a class='easyui-linkbutton' iconCls='icon-search' href='javascript:;' onclick='check(" + rec.id + "," + rec.status + "," + 2 + ")'>拒绝</a>";
-                    } else if (rec.status == 1) {
-                        btn = "<a class='easyui-linkbutton' iconCls='icon-search' href='javascript:;'>审核通过</a>";
+                        btn = "<a class='easyui-linkbutton' iconCls='icon-search' href='javascript:;' onclick='check(" + rec.comId + "," + rec.status + "," + 2 + ")'>通过</a>";
+                        btn += "<a class='easyui-linkbutton' iconCls='icon-search' href='javascript:;' onclick='check(" + rec.comId + "," + rec.status + "," + 1 + ")'>拒绝</a>";
                     } else if (rec.status == 2) {
-                        btn = "<a class='easyui-linkbutton' iconCls='icon-search' href='javascript:;'>审核失败</a>";
+                        btn = "<span class='easyui-linkbutton' iconCls='icon-search' href='javascript:;'>审核通过</span>";
+                    } else if (rec.status == 1) {
+                        btn = "<span class='easyui-linkbutton' iconCls='icon-search' href='javascript:;'>审核拒绝</span>";
                     }
                     return btn;
                 }
@@ -92,7 +94,8 @@
 
     function check(id, status, checkStatus) {
         var s = "通过";
-        if (checkStatus == 2) s = "否决"
+        if (checkStatus == 1) s = "否决"
+        if (checkStatus == 2) s = "通过"
         $.messager.confirm('修改状态', '确定' + s + '？', function (r) {
             if (r) {
                 $.getJSON("/company/check", {id: id, status: status, checkStatus: checkStatus}, function () {

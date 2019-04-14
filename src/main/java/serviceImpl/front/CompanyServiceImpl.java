@@ -26,9 +26,9 @@ public class CompanyServiceImpl implements CompanyService {
         return companyMapper.getByCompanyName(username);
     }
 
-    public boolean saveCompany(Company user) {
+    public boolean saveCompany(Company com) {
         try {
-            companyMapper.insert(user);
+            companyMapper.insert(com);
         } catch (Exception e) {
             return false;
         }

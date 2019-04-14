@@ -11,16 +11,16 @@ import org.springframework.stereotype.Repository;
 @Repository("CompanyMapper")
 public interface CompanyMapper {
 
-    @Insert("insert into company (userId,name,comType,description,empCount,address,email,comTel,manager,mTel,trade,businessLicense) values(#{userId},#{name},#{comType},#{description},#{empCount},#{address},#{email},#{comTel},#{manager},#{mTel},#{trade},#{businessLicense}) ")
+    @Insert("insert into company (fullname,username,userId,comtype,description,empcount,address,email,tel,manager,mTel,status) values(#{fullname},#{username},#{userId},#{comType},#{description},#{empcount},#{address},#{email},#{tel},#{manager},#{mTel},#{status}) ")
     public void insert(Company o);
 
-    @Update("update company set fullname=#{fullname},username=#{username},comtype=#{comtype},description=#{description},empcount=#{empcount},address=#{address},email=#{email},tel=#{tel},manager=#{manager},mTel=#{mTel} where userId= #{userId} ")
+    @Update("update company set fullname=#{fullname},username=#{username},comtype=#{comtype},description=#{description},empcount=#{empcount},address=#{address},email=#{email},tel=#{tel},manager=#{manager},mTel=#{mTel},status=#{status} where comId= #{comId} ")
     public void update(Company o);
 
-    @Delete("delete from company where id=#{id}")
+    @Delete("delete from company where comId=#{id}")
     public void delete(int id);
 
-    @Select("select * from company where id=#{id}")
+    @Select("select * from company where comId=#{id}")
     public Company getById(int id);
 
     @Select("select * from company where fullname=#{fullname}")

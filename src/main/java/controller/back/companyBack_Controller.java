@@ -33,7 +33,7 @@ public class companyBack_Controller extends Basic_controller<Company> {
         String txt = req.getParameter("txt");
         StringBuilder sqlWhere = new StringBuilder();
         if (txt != null && txt != "") {
-            sqlWhere.append(" where company.name like '%" + txt + "%' ");
+            sqlWhere.append(" where company.fullname like '%" + txt + "%' ");
             info.setWhere(sqlWhere.toString());
         }
         return super.index(info, req);
@@ -49,17 +49,17 @@ public class companyBack_Controller extends Basic_controller<Company> {
     @RequestMapping("check")
     public @ResponseBody
     JsonList check(int id, int status, int checkStatus, HttpServletRequest req) {
-        if (id == 0) {
+        if (id == 0 || checkStatus == 0) {
             return null;
         }
         Company company = service.getById(id);
-        if (status == 0 && checkStatus == 1 || checkStatus == 2) {
-//            company.setStatus(checkStatus);
+        if (company == null) {
+            return null;
         }
+        company.setStatus(checkStatus);
         service.update(company);
         return index(new Search(), req);
     }
-
 
 
 }
