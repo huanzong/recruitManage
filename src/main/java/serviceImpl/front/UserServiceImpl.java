@@ -13,26 +13,36 @@ import javax.annotation.Resource;
 public class UserServiceImpl extends Basic_serviceImpl<user> implements UserService {
 
     @Resource(name = "UserMapper")
-    UserMapper userMapper;
+    UserMapper mapper;
 
     public user getUserByAccount(String account) {
 
-        return userMapper.getUserByAccount(account);
+        return mapper.getUserByAccount(account);
     }
 
     public user loginByFront(String username, String pwd) {
         user user = new user();
         user.setAccount(username);
         user.setPass(pwd);
-        return userMapper.login(user);
+        return mapper.login(user);
     }
 
     public Boolean updateUserPass(user user) {
         try {
-            userMapper.updateUserPass(user);
+            mapper.updateUserPass(user);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
+    }
+
+    public user findByUsername(String userName) {
+
+        return mapper.getUserByAccount(userName);
+    }
+
+    @Override
+    public void insert(user t) {
+        mapper.insert(t);
     }
 }

@@ -13,5 +13,7 @@ public interface UserService extends Basic_Service<user> {
 
     public Boolean updateUserPass(user user);
 
+    public user findByUsername(String userName);
+
 
 }

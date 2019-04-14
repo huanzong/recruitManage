@@ -14,6 +14,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 
+import static utils.Values.JOB_SEEKER_STATUS;
+import static utils.Values.RECRUITER_STATUS;
+
 
 @Controller
 @RequestMapping("/com")
@@ -76,7 +79,7 @@ public class CompanyController {
 
         if (user == null) {
             b.setStatus(400);
-        } else if (user.getStatus() == 1) {
+        } else if (user.getType() != RECRUITER_STATUS) {
             b.setStatus(500);
         } else {
             Company company = companyService.findByUid(user.getId());
@@ -114,11 +117,17 @@ public class CompanyController {
         if (user == null) {
             return "2";
         }
-        if(user.getType() == 1){
+        if (user.getType() == JOB_SEEKER_STATUS) {
             return "3";
         }
         com.setUserId(user.getId());
-        boolean flag = companyService.updateCompany(com);
+        boolean flag = false;
+        if (com.getComId() != null || com.getComId() != 0 ) {
+            flag = companyService.updateCompany(com);
+        } else {
+            flag = companyService.saveCompany(com);
+        }
+
         if (flag) {
             return "1";
         }

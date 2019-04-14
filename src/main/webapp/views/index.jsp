@@ -145,7 +145,6 @@
             </div>
         </div>
     </div>
-    <div class="copyrights"><a href="http://www.cssmoban.com/">免费模板</a></div>
     <!--content-->
     <div class="page_content_offset">
         <div class="container">
@@ -162,46 +161,11 @@
             <section class="products_container clearfix m_bottom_25 m_sm_bottom_15">
                 <div id="product_list"></div>
             </section>
-            <!--product brands-->
-            <div class="clearfix m_bottom_25 m_sm_bottom_20">
-                <h2 class="tt_uppercase color_dark f_left heading2 animate_fade f_mxs_none m_mxs_bottom_15">企业LOGO</h2>
-                <div class="f_right clearfix nav_buttons_wrap animate_fade f_mxs_none">
-                    <button class="button_type_7 bg_cs_hover box_s_none f_size_ex_large t_align_c bg_light_color_1 f_left tr_delay_hover r_corners pb_prev">
-                        <i class="fa fa-angle-left"></i></button>
-                    <button class="button_type_7 bg_cs_hover box_s_none f_size_ex_large t_align_c bg_light_color_1 f_left m_left_5 tr_delay_hover r_corners pb_next">
-                        <i class="fa fa-angle-right"></i></button>
-                </div>
-            </div>
-            <!--product brands carousel-->
-            <div class="product_brands m_bottom_45 m_sm_bottom_35">
-                <a href="#" class="d_block t_align_c animate_fade"><img src="<%=path%>/images/brand_logo.gif"
-                                                                        alt=""></a>
-                <a href="#" class="d_block t_align_c animate_fade"><img src="<%=path%>/images/brand_logo1.gif"
-                                                                        alt=""></a>
-                <a href="#" class="d_block t_align_c animate_fade"><img src="<%=path%>/images/brand_logo2.gif"
-                                                                        alt=""></a>
-                <a href="#" class="d_block t_align_c animate_fade"><img src="<%=path%>/images/brand_logo3.gif"
-                                                                        alt=""></a>
-                <a href="#" class="d_block t_align_c animate_fade"><img src="<%=path%>/images/brand_logo4.gif"
-                                                                        alt=""></a>
-                <a href="#" class="d_block t_align_c animate_fade"><img src="<%=path%>/images/brand_logo5.gif"
-                                                                        alt=""></a>
-                <a href="#" class="d_block t_align_c animate_fade"><img src="<%=path%>/images/brand_logo6.gif"
-                                                                        alt=""></a>
-                <a href="#" class="d_block t_align_c animate_fade"><img src="<%=path%>/images/brand_logo7.gif"
-                                                                        alt=""></a>
-                <a href="#" class="d_block t_align_c animate_fade"><img src="<%=path%>/images/brand_logo8.gif"
-                                                                        alt=""></a>
-                <a href="#" class="d_block t_align_c animate_fade"><img src="<%=path%>/images/brand_logo9.gif"
-                                                                        alt=""></a>
-                <a href="#" class="d_block t_align_c animate_fade"><img src="<%=path%>/images/brand_logo10.gif" alt=""></a>
-                <a href="#" class="d_block t_align_c animate_fade"><img src="<%=path%>/images/brand_logo11.gif" alt=""></a>
-            </div>
             <!--blog-->
             <div class="row clearfix m_bottom_45 m_sm_bottom_35">
                 <div class="col-lg-6 col-md-6 col-sm-12 m_sm_bottom_35 blog_animate animate_ftr">
                     <div class="clearfix m_bottom_25 m_sm_bottom_20">
-                        <h2 class="tt_uppercase color_dark f_left">来自博客</h2>
+                        <h2 class="tt_uppercase color_dark f_left">招聘会通知</h2>
                         <div class="f_right clearfix nav_buttons_wrap">
                             <button class="button_type_7 bg_cs_hover box_s_none f_size_ex_large bg_light_color_1 f_left tr_delay_hover r_corners blog_prev">
                                 <i class="fa fa-angle-left"></i></button>
@@ -210,58 +174,7 @@
                         </div>
                     </div>
                     <!--blog carousel-->
-                    <div class="blog_carousel">
-                        <div class="clearfix">
-                            <!--image-->
-                            <a href="#"
-                               class="d_block photoframe relative shadow wrapper r_corners f_left m_right_20 animate_ftt f_mxs_none m_mxs_bottom_10">
-                                <img class="tr_all_long_hover" src="<%=path%>/images/blog_img1_1.jpg" alt="">
-                            </a>
-                            <!--post content-->
-                            <div class="mini_post_content">
-                                <h4 class="m_bottom_5 animate_ftr"><a href="#"
-                                                                      class="color_dark"><b>只有一轮面试的OFFER，你敢去吗？</b></a>
-                                </h4>
-                                <p class="f_size_medium m_bottom_10 animate_ftr">2019-3-25</p>
-                                <p class="m_bottom_10 animate_ftr">
-                                    最近有个朋友说，他们公司的面试都是一轮的，派去面试的人也很随意，HR是兼任的，基本管不了这事，都是部门里找个人就去面了，觉得可以就发OFFER了，连复试也没有。
-                                    . </p>
-                                <a class="tt_uppercase f_size_large animate_ftr" href="#">Read More</a>
-                            </div>
-                        </div>
-                        <div class="clearfix">
-                            <!--image-->
-                            <a href="#"
-                               class="d_block photoframe relative shadow wrapper r_corners f_left m_right_20 animate_ftt f_mxs_none m_mxs_bottom_10">
-                                <img class="tr_all_long_hover" src="<%=path%>/images/blog_img1_2.jpg" alt="">
-                            </a>
-                            <!--post content-->
-                            <div class="mini_post_content">
-                                <h4 class="m_bottom_5 animate_ftr"><a href="#"
-                                                                      class="color_dark"><b>发现企业违反劳动法,应该如何应对？</b></a>
-                                </h4>
-                                <p class="f_size_medium m_bottom_10 animate_ftr">2019-2-27</p>
-                                <p class="m_bottom_10 animate_ftr">
-                                    入职是个新开始，可有时会变成心酸的开始……上班后才发现合同没签或是签了没给自己；工资比说好的少了，绩效奖金根本是拿不到的天方夜谭；不给缴金，或是按本事最低工资来缴……这种种心酸的事情你遇到过吗？ </p>
-                                <a class="tt_uppercase f_size_large animate_ftr" href="#">Read More</a>
-                            </div>
-                        </div>
-                        <div class="clearfix">
-                            <!--image-->
-                            <a href="#"
-                               class="d_block photoframe relative shadow wrapper r_corners f_left m_right_20 animate_ftt f_mxs_none m_mxs_bottom_10">
-                                <img class="tr_all_long_hover" src="<%=path%>/images/blog_img1_3.jpg" alt="">
-                            </a>
-                            <!--post content-->
-                            <div class="mini_post_content">
-                                <h4 class="m_bottom_5 animate_ftr"><a href="#" class="color_dark"><b>面试如何回答离职原因？</b></a>
-                                </h4>
-                                <p class="f_size_medium m_bottom_10 animate_ftr">2019-4-12</p>
-                                <p class="m_bottom_10 animate_ftr">
-                                    　对于个人来说，面试中最心塞也是最难回答的问题非“离别原因”莫属了。实际上个人想要跳槽的原因无非就是钱少了或者受委屈了，面试官们应该也心知肚明，老这么追问不是逼个人编故事吗？离职原因坦白说，一定不录取，隐瞒着不说实再是难以圆谎，到底怎么办才好？怎么说才能真正打消面试官的疑虑呢？世界上到底有没有关于离职原因的最安全最完美的答案呢？本期前程无忧论在线沙龙邀请职场专家来为大家答疑解惑。</p>
-                                <a class="tt_uppercase f_size_large animate_ftr" href="#">Read More</a>
-                            </div>
-                        </div>
+                    <div id="zhaopinhui" class="blog_carousel">
                     </div>
                 </div>
                 <!--testimonials-->
@@ -314,39 +227,6 @@
                     </div>
                 </div>
             </div>
-            <!--banners-->
-            <%-- 	<div class="row clearfix">
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <a href="#" class="d_block animate_ftb h_md_auto m_xs_bottom_15 banner_type_2 r_corners red t_align_c tt_uppercase vc_child n_sm_vc_child">
-                            <span class="d_inline_middle">
-                                <img class="d_inline_middle m_md_bottom_5" src="<%=path%>/images/banner_img_3.png" alt="">
-                                <span class="d_inline_middle m_left_10 t_align_l d_md_block t_md_align_c">
-                                    <b>100% Satisfaction</b><br><span class="color_dark">Guaranteed</span>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <a href="#" class="d_block animate_ftb h_md_auto m_xs_bottom_15 banner_type_2 r_corners green t_align_c tt_uppercase vc_child n_sm_vc_child">
-                            <span class="d_inline_middle">
-                                <img class="d_inline_middle m_md_bottom_5" src="<%=path%>/images/banner_img_4.png" alt="">
-                                <span class="d_inline_middle m_left_10 t_align_l d_md_block t_md_align_c">
-                                    <b>Free Shipping</b><br><span class="color_dark">On All Items</span>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-4">
-                        <a href="#" class="d_block animate_ftb h_md_auto banner_type_2 r_corners orange t_align_c tt_uppercase vc_child n_sm_vc_child">
-                            <span class="d_inline_middle">
-                                <img class="d_inline_middle m_md_bottom_5" src="<%=path%>/images/banner_img_5.png" alt="">
-                                <span class="d_inline_middle m_left_10 t_align_l d_md_block t_md_align_c">
-                                    <b>Great Daily Deals</b><br><span class="color_dark">Shop Now!</span>
-                                </span>
-                            </span>
-                        </a>
-                    </div>
-                </div> --%>
         </div>
     </div>
     <!--markup footer-->
@@ -510,6 +390,42 @@
 <script src="<%=path%>/js/jquery.tweet.min.js"></script>
 <script src="<%=path%>/js/jquery.custom-scrollbar.js"></script>
 <script src="<%=path%>/js/scripts.js"></script>
+<script>
+    $(function () {
+        $.ajax({
+            url: "/jobFair/index",
+            type: "post",
+            dataType: "json",
+            data: {
+                page: 1,
+                rows: 5
+            },
+            success: function (data, textStatus, jqXHR) {
+                if (data != "") {
+                    var html = "";
+                    for (var i = 0; i < data.rows.length; i++) {
+                        var dataInfo = data.rows[i];
+                        html += '<div class="clearfix"><a href="#" class="d_block photoframe relative shadow wrapper r_corners f_left m_right_20 animate_ftt f_mxs_none m_mxs_bottom_10">  '
+                        if ((i + 1) % 3 == 3) html += '<img class="tr_all_long_hover" src="<%=path%>/images/blog_img1_1.jpg" alt="">'
+                        if ((i + 1) % 3 == 2) html += '<img class="tr_all_long_hover" src="<%=path%>/images/blog_img1_2.jpg" alt="">'
+                        if ((i + 1) % 3 == 1) html += '<img class="tr_all_long_hover" src="<%=path%>/images/blog_img1_3.jpg" alt="">'
+
+                        html += '</a>'
+                        html += '<div class="mini_post_content"><h4 class="m_bottom_5 animate_ftr"><a href="#" class="color_dark"><b>' + dataInfo.title + '</b></a></h4>  '
+                        html += '<p class="f_size_medium m_bottom_10 animate_ftr">开始时间:' + dataInfo.startTime + '</p>'
+                        html += '<p class="f_size_medium m_bottom_10 animate_ftr">结束时间:' + dataInfo.endTime + '</p>'
+                        html += '<p class="f_size_medium m_bottom_10 animate_ftr">公司数量:' + dataInfo.companyCount + '</p>'
+                        html += '<p class="m_bottom_10 animate_ftr">' + dataInfo.comment + '</p></div> </div>'
+
+                    }
+                    $("#zhaopinhui").append(html);
+                }
+
+            }
+        })
+    })
+
+</script>
 
 
 </body>

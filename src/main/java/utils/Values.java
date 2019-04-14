@@ -2,8 +2,8 @@ package utils;
 
 public class Values {
 
-	public static final int JOB_SEEKER_STATUS = 1;//求职者
-	public static final int RECRUITER_STATUS = 2;//招聘者
+	public static final int JOB_SEEKER_STATUS = 0;//求职者
+	public static final int RECRUITER_STATUS = 1;//招聘者
 
 	public static String[][] user_type=new String[][]{{"0","求职者"},{"1","招聘者"}};
 	public static String[][] user_status=new String[][]{{"0","通过"},{"1","拒绝"}};

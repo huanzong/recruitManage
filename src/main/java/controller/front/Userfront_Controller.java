@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import service.front.UserService;
 import utils.BaseResponse;
+import utils.StringUtil;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -96,7 +97,6 @@ public class Userfront_Controller extends Basic_controller<user> {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return BaseResponse.STATUS_500;
         }
         return baseResponse;
     }
@@ -148,6 +148,8 @@ public class Userfront_Controller extends Basic_controller<user> {
         }
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/saveUser")
     public ModelAndView saveUser(user user, HttpServletRequest request) {
         ModelAndView view = new ModelAndView();
         if (null == user) {
@@ -155,18 +157,35 @@ public class Userfront_Controller extends Basic_controller<user> {
         }
         entity.user userInfo = userService.getUserByAccount(user.getAccount());
         if (userInfo != null && userInfo.getAccount() != "") {
-            view.setViewName("user/comRegister");//不允许注册
+            view.setViewName("views/user/comRegister");//不允许注册
             return view;
         }
+        user.setStatus(1);
+        user.setQuestion("");
+        user.setAnswer("");
         userService.insert(user);
         request.getSession().setAttribute("user", user);
-        if (user.getStatus() == JOB_SEEKER_STATUS) {
-            view.setViewName("user/empInfoRegister");
+        if (user.getType() == JOB_SEEKER_STATUS) {
+            view.setViewName("views/user/empInfo");
         } else {
-            view.setViewName("user/comInfoRegister");
+            view.setViewName("views/user/comInfo");
         }
         return view;
     }
 
 
+    @ResponseBody
+    @RequestMapping(value = "/checkUsername")
+    public String checkUsername(String account) {
+        if (StringUtil.isEmpty(account)) {
+            return "0";
+        }
+        user user = userService.findByUsername(account);
+        if (user == null) {
+            return "1";
+        } else {
+            return "0";
+        }
+
+    }
 }

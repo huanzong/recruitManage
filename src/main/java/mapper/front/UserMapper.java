@@ -16,10 +16,11 @@ public interface UserMapper {
     @Select("select * from " + user.TABLE_NAME + " where account=#{account}")
     public user getUserByAccount(String account);
 
-    @Select("select * from " + user.TABLE_NAME + " where status = 0 and account=#{account} and pass=#{pass}")
+    @Select("select * from " + user.TABLE_NAME + " where status = 1 and account=#{account} and pass=#{pass}")
     public user login(user t);
 
     @Update("update  user set pass=#{pass} where id=#{id}")
     public void updateUserPass(user t);
+
 
 }
