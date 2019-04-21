@@ -16,14 +16,11 @@
     <link type="text/css" rel="stylesheet" href="<%=path%>/css/validator.css"></link>
     <script src="<%=path%>/js/formValidator-4.0.1.js" type="text/javascript" charset="UTF-8"></script>
     <script src="<%=path%>/js/formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
-    <link rel="stylesheet" type="text/css" href="<%=path%>/common/cs
-s/jcDate.css" media="all"/>
+    <link rel="stylesheet" type="text/css" href="<%=path%>/common/css/jcDate.css" media="all"/>
     <script src="<%=path%>/common/date/laydate.js"></script>
-
     <script type="text/javascript" src="<%=path%>/common/js/format.js"></script>
     <script src="<%=path%>/common/sweet/sweet-alert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="<%=path%>/common/sweet/sweet-alert.css">
-
     <style type="text/css">
         .dataTables_scroll {
             margin-bottom: 20px;
@@ -120,10 +117,17 @@ s/jcDate.css" media="all"/>
 <script type="text/javascript" charset="utf-8">
 
     $(document).ready(function () {
+        var empId = $("#detail_empId").val();
+        if (empId == null || empId == "") {
+            empId = 0;
+        }
         $.ajax({
             url: "<%=path%>/emp/findEmpById",
             type: "get",
             dataType: "json",
+            data: {
+                empId: empId
+            },
 // 	          data:$("#luruform").serialize(),
             success: function (data, textStatus, jqXHR) {
                 if (data.status == 400) {
@@ -189,7 +193,10 @@ s/jcDate.css" media="all"/>
                 if (data != 0) {
                     var src = $('#detail_image').attr('src');
                     var file = document.getElementById('imageFile');
-
+                    if (src == undefined || src == null) {
+                        confirm("保存成功,请选择头像!");
+                        return;
+                    }
                     saveDeterpersonImage(file, data);
                 } else {
 
@@ -213,7 +220,6 @@ s/jcDate.css" media="all"/>
 
     //图片上传预览    IE是用了滤镜。
     function previewImage(file) {
-
         var MAXWIDTH = 140;
         var MAXHEIGHT = 160;
         if (file.files && file.files[0]) {
@@ -265,7 +271,6 @@ s/jcDate.css" media="all"/>
         param.top = Math.round((maxHeight - param.height) / 2);
         return param;
     }
-
 
     function change() {
         $('#imageFile').click();
@@ -435,7 +440,7 @@ s/jcDate.css" media="all"/>
                                 <tr>
                                     <td><font class="c1"><a style="color:red ">*</a> 简历名称：</font></td>
                                     <td><font class="c2"><input type="text" style="width:95%;height:35px;border: none; "
-                                                                name="resumeName" id="detail_resumeName"></font></td>
+                                                                name="resume_name" id="detail_resumeName"></font></td>
                                     <td><font class="c1">QQ号码：</font></td>
                                     <td id="check3"><font class="c2"><input type="text"
                                                                             style="width:95%;height:35px;border: none; "

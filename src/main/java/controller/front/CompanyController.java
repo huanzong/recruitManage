@@ -1,20 +1,26 @@
 package controller.front;
 
 
-import entity.Company;
-import entity.Info;
-import entity.user;
+import dto.JobDto;
+import entity.*;
+import mapper.front.ComResumeMapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import service.front.CompanyService;
+import service.front.EmpService;
 import service.front.InfoService;
-import utils.BaseResponse;
+import service.front.JobService;
+import utils.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import static utils.Values.*;
 
@@ -27,6 +33,12 @@ public class CompanyController {
     CompanyService companyService;
     @Resource
     InfoService infoService;
+    @Resource
+    EmpService empService;
+    @Resource
+    ComResumeMapper comResumeMapper;
+    @Resource
+    JobService jobService;
 
     /**
      * 用于保存公司信息
@@ -108,8 +120,8 @@ public class CompanyController {
     }
 
     @RequestMapping(value = "/goCommond")
-    public ModelAndView  goCommond(int id) {
-        Info info=infoService.findById(id);
+    public ModelAndView goCommond(int id) {
+        Info info = infoService.findById(id);
         ModelAndView view = new ModelAndView();
         view.addObject("info", info);
         view.setViewName("views/info/commond");
@@ -147,5 +159,69 @@ public class CompanyController {
         return "0";
     }
 
+
+    @RequestMapping(value = "/applyJobUser")
+    public ModelAndView applyJobUserList() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("views/job/applyJobUserList");
+        return view;
+    }
+
+    /**
+     * 查看职位申请人列表
+     *
+     * @param request
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "findApplyJobUserList")
+    public JqueryDto findApplyJobUserList(HttpServletRequest request) {
+        JqueryDto dto = new JqueryDto();
+        //查询总数
+        user user = (user) request.getSession().getAttribute("user");
+        if (user == null || user.getStatus() == 2) {
+            return null;
+        }
+        Company company = companyService.findByUid(user.getId());
+        if (company == null) {
+            return null;
+        }
+
+        Search info = new Search();
+        info.setWhere(" where com_resume.com_id =" + company.getComId() );
+        List<ComResume> comResumeList = comResumeMapper.getByWhere(info);
+        if (comResumeList == null) {
+            return dto;
+        }
+        List list = new ArrayList();
+        for (int i = 0; i < comResumeList.size(); i++) {
+            ComResume comResume = comResumeList.get(i);
+            int jobId = comResume.getJob_id();
+            int empId = comResume.getEmp_id();
+            if (jobId == 0 || empId == 0) {
+                continue;
+            }
+            JobDto jobDto = jobService.findByJob(jobId);
+            Emp emp = empService.findByEmpId(empId);
+            if (jobDto == null || emp == null) {
+                continue;
+            }
+            Map map = new HashMap();
+            map.put("emp_id", empId);
+            map.put("realname",emp.getResume_name());
+            map.put("sex",emp.getSex());
+            map.put("birthday",emp.getBirthday());
+            map.put("marry",emp.getMarry());
+            map.put("degree",emp.getDegree());
+            map.put("tel",emp.getTel());
+            map.put("email",emp.getEmail());
+            map.put("address",emp.getAddress());
+            map.put("jobname",jobDto.getJobName());
+            list.add(map);
+        }
+        dto.setTotal(list.size());
+        dto.setRows(list);
+        return dto;
+    }
 
 }

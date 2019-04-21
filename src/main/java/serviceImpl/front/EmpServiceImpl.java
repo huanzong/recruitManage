@@ -46,4 +46,9 @@ public class EmpServiceImpl implements EmpService {
         }
     }
 
+    public Emp findByEmpId(Integer id) {
+
+        return empMapper.findByEmpId(id);
+    }
+
 }

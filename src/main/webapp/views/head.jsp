@@ -173,7 +173,7 @@
                                    href="<%=request.getContextPath()%>/com/goCompanyInfo">企业信息管理</a></li>
                             <li><a class="color_dark tr_delay_hover"
                                    href="<%=request.getContextPath()%>/info/goAddInfo">发布信息</a></li>
-                            <li><a class="color_dark tr_delay_hover" href="<%=request.getContextPath()%>/">应聘人员查看</a>
+                            <li><a class="color_dark tr_delay_hover" href="<%=request.getContextPath()%>/com/applyJobUser">应聘人员查看</a>
                             </li>
                         </ul>
                     </div>

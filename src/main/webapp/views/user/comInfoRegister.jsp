@@ -78,11 +78,11 @@
 	          		if(data != 0){
 	          			alert("保存成功");
 	          		}else{
-	          			openMsgDialog("异常......");
+                        alert("异常......");
 	          		}
 	          },
 	          error:function(){
-	        	  openMsgDialog("异常信息!");
+                  alert("异常信息!");
 	          }
 	   });
 	}

@@ -26,4 +26,7 @@ public interface CompanyMapper {
     @Select("select * from company where fullname=#{fullname}")
     public Company getByCompanyName(String fullname);
 
+    @Select("select * from company where userId = #{userId} limit 1")
+    public Company findByUid(int userId);
+
 }

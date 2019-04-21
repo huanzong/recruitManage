@@ -53,7 +53,7 @@ public class EmpController {
      */
     @ResponseBody
     @RequestMapping(value = "/findEmpById")
-    public BaseResponse findEmpById(HttpServletRequest request) {
+    public BaseResponse findEmpById(HttpServletRequest request, Integer empId) {
         user user = (user) request.getSession().getAttribute("user");
         BaseResponse b = new BaseResponse();
         if (user == null) {
@@ -61,7 +61,12 @@ public class EmpController {
         } else if (user.getStatus() == 2) {
             b.setStatus(500);
         } else {
-            Emp emp = empService.findByUserId(user.getId());
+            Emp emp;
+            if (empId == 0 || empId == null) {
+                emp = empService.findByUserId(user.getId());
+            } else {
+                emp = empService.findByEmpId(empId);
+            }
             b.setStatus(200);
             b.setContent(emp);
         }
@@ -174,12 +179,11 @@ public class EmpController {
      * 查看浏览职位的历史
      *
      * @param request
-     * @param job
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "findHistoryJobList")
-    public JqueryDto findHistoryJobList(HttpServletRequest request, Job job) {
+    public JqueryDto findHistoryJobList(HttpServletRequest request) {
         //查询总数
         user user = (user) request.getSession().getAttribute("user");
         if (user == null || user.getStatus() == 2) {
@@ -188,4 +192,5 @@ public class EmpController {
         Pager pager = PagerUtils.getPager(request);
         return jobService.findHistoryJobList(pager, user.getId());
     }
+
 }

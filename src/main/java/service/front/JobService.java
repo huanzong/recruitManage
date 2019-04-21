@@ -16,6 +16,8 @@ public interface JobService {
 
     public JobDto findByJobId(int id);
 
+    public JobDto findByJob(int id);
+
     public JqueryDto findJobList(Pager pager, Job job);
 
     public JqueryDto findHistoryJobList(Pager pager, int userId);

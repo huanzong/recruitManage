@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import service.front.CompanyService;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 
 @Service
@@ -36,13 +35,12 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     public Company findByUid(int uid) {
-//        CompanyCriteria cc = new CompanyCriteria();
-//        cc.createCriteria().andUserIdEqualTo(uid);
-//        List<Company> list = companyMapper.selectByExample(cc);
-//        if (list != null && list.size() > 0) {
-//            return list.get(0);
-//        }
-        return null;
+        try {
+            Company company = companyMapper.findByUid(uid);
+            return company;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public boolean updateCompany(Company company) {

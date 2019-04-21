@@ -51,7 +51,9 @@ public class JobServiceImpl implements JobService {
         saveTopJob(id);
         return jobDao.findByJobId(id);
     }
-
+    public JobDto findByJob(int id) {
+        return jobDao.findByJobId(id);
+    }
 
     public boolean saveTopJob(int jobId) {
         int i = jobDao.updateTopJob(jobId);

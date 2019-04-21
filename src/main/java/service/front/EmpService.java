@@ -13,5 +13,7 @@ public interface EmpService {
 
     public boolean updateEmpImg(Emp dp);
 
+    public Emp findByEmpId(Integer id);
+
 
 }
