@@ -26,6 +26,30 @@
     <!--font include-->
     <link href="<%=request.getContextPath()%>/css/font-awesome.min.css" rel="stylesheet">
     <script type="text/javascript">
+
+        $(".qiuzhi li").click(function () {
+            if ("${user.id}" == null || "${user.id}" == "0") {
+                swal("请登录后进行操作!");
+                return;
+            }
+            if ("${user.type}" != "0") {
+                swal("非面试者禁止操作!");
+                return;
+            }
+        });
+
+        $(".zhaopin li").click(function () {
+            var type = ${user.type};
+            if ("${user.id}" == null || "${user.id}" == "0") {
+                swal("请登录后进行操作!");
+                return;
+            }
+            if ("${user.type}" != "1") {
+                swal("非招聘者禁止操作!");
+                return;
+            }
+        });
+
         function login() {
             var username = $('#username').val();
             var password = $('#pwd').val();
@@ -147,7 +171,7 @@
                                                                 class="tr_delay_hover color_light tt_uppercase"><b>求职者点我</b></a>
                     <!--sub menu-->
                     <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
-                        <ul class="sub_menu">
+                        <ul class="sub_menu qiuzhi">
                             <li><a class="color_dark tr_delay_hover"
                                    href="<%=request.getContextPath()%>/info/goAddInfo">发布求职信息</a></li>
                             <li><a class="color_dark tr_delay_hover" href="<%=request.getContextPath()%>/info/goMyInfo">我的求职信息</a>
@@ -164,7 +188,7 @@
                                                                 class="tr_delay_hover color_light tt_uppercase"><b>企业用户点我</b></a>
                     <!--sub menu-->
                     <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
-                        <ul class="sub_menu">
+                        <ul class="sub_menu zhaopin">
                             <li><a class="color_dark tr_delay_hover" href="<%=request.getContextPath()%>/job/goSaveJob">发布招聘信息</a>
                             </li>
                             <li><a class="color_dark tr_delay_hover"
@@ -173,7 +197,8 @@
                                    href="<%=request.getContextPath()%>/com/goCompanyInfo">企业信息管理</a></li>
                             <li><a class="color_dark tr_delay_hover"
                                    href="<%=request.getContextPath()%>/info/goAddInfo">发布信息</a></li>
-                            <li><a class="color_dark tr_delay_hover" href="<%=request.getContextPath()%>/com/applyJobUser">应聘人员查看</a>
+                            <li><a class="color_dark tr_delay_hover"
+                                   href="<%=request.getContextPath()%>/com/applyJobUser">应聘人员查看</a>
                             </li>
                         </ul>
                     </div>
